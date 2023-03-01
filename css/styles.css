@@ -10,7 +10,6 @@
 --color-icon: #8E8F99;
 --color-modal-button: #E7E9FC;
 --color-modal: #FCFCFC;
---transition: 250ms, cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -101,13 +100,19 @@ ul {
     text-decoration: none;
     display: block;
     padding: 24px 0;
+    transition-property: color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.link:hover,
+.link:focus {
+    color: var(--color-secend);
+}
+
 .link.current::after {
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     display: block;
     width: 100%;
     height: 4px;
@@ -116,8 +121,7 @@ ul {
     content: '';
 }
 
-.link:hover,
-.link:focus {
+.current {
     color: var(--color-secend);
 }
 
@@ -129,6 +133,7 @@ ul {
     letter-spacing: 0.02em;
     color: var(--color-secondary);
     text-decoration: none;
+    transition-property: color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -181,6 +186,7 @@ ul {
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    transition-property: background-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -188,7 +194,6 @@ ul {
 .button-hero:hover,
 .button-hero:focus {
     background-color: var(--color-secend);
-    /* border-radius: 4px; */
 }
 
 /* section-2 */
@@ -289,7 +294,6 @@ ul {
     display: flex;
     gap: 24px;
     width: 100%;
-    /* flex-basis: calc(100% - 72px)/4; */
 }
 
 .section-team {
@@ -361,6 +365,7 @@ ul {
     border: 1px solid var(--color-icon);
     border-radius: 4px;
     color: var(--color-icon);
+    transition-property: fill, border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -439,6 +444,7 @@ ul {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
+    transition-property: background-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -471,6 +477,7 @@ ul {
     border-radius: 4px;
     color: var(--color-brend);
     cursor: pointer;
+    transition-property: background-color, color, box-shadow, border-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -542,6 +549,7 @@ ul {
 .link-site {
     display: block;
     text-decoration: none;
+    transition-property: box-shadow;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -569,6 +577,7 @@ ul {
     line-height: 1.5;
     letter-spacing: 0.02em;
     padding: 40px 32px;
+    transition-property: transform;
     transform: translateY(100%);
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -604,6 +613,7 @@ ul {
     color: var(--color-icon);
     background-color: var(--color-brend);
     border-radius: 50%;
+    transition-property: background-color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -635,7 +645,7 @@ ul {
     justify-content: center;
     padding: 20px 0;
     background-color: rgba(46, 47, 66, 0.4);
-    transition: opasity 250ms, visibility 250ms, cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
@@ -670,9 +680,11 @@ ul {
     background-color: var(--color-modal-button);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition-property: background-color, fill;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
